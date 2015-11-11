@@ -32,14 +32,15 @@ app.on('ready', function () {
 
     if (env.name === 'test') {
         mainWindow.loadUrl('file://' + __dirname + '/spec.html');
+    } else if (env.name === 'development') {
+        mainWindow.loadUrl('http://localhost:4020/steedos');
     } else {
         //mainWindow.loadUrl('file://' + __dirname + '/app.html');
-        //mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
-        mainWindow.loadUrl('http://localhost:4020/steedos');
+        mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
     }
 
+    devHelper.setDevMenu();
     if (env.name !== 'production') {
-        devHelper.setDevMenu();
         mainWindow.openDevTools();
     }
 
