@@ -33,7 +33,9 @@ app.on('ready', function () {
     if (env.name === 'test') {
         mainWindow.loadUrl('file://' + __dirname + '/spec.html');
     } else {
-        mainWindow.loadUrl('file://' + __dirname + '/app.html');
+        //mainWindow.loadUrl('file://' + __dirname + '/app.html');
+        //mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
+        mainWindow.loadUrl('http://localhost:4020/steedos');
     }
 
     if (env.name !== 'production') {

@@ -1,10 +1,10 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "identifier": "com.example.electron-boilerplate",
-  "description": "Starter for your Electron application. Out of the box ready for serious stuff.",
+  "name": "steedos-desktop",
+  "productName": "Steedos Desktop",
+  "identifier": "com.steedos.desktop",
+  "description": "",
   "version": "0.1.0",
-  "author": "Mr Gumby <gumby@sillywalks.com>",
+  "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "background.js",
   "config": {
     "target": "development"
