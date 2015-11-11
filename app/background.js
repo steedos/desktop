@@ -2,8 +2,10 @@
 // app starts. This script is running through entire life of your application.
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
+'use strict';
 
 var app = require('app');
+var path = require('path');
 var BrowserWindow = require('browser-window');
 var env = require('./vendor/electron_boilerplate/env_config');
 var devHelper = require('./vendor/electron_boilerplate/dev_helper');
@@ -24,6 +26,10 @@ app.on('ready', function () {
         x: mainWindowState.x,
         y: mainWindowState.y,
         'node-integration': false,
+        'preload': path.resolve(path.join(__dirname, 'preload.js')),
+        'web-preferences': {
+            'web-security': false
+        },
         width: mainWindowState.width,
         height: mainWindowState.height
     });
