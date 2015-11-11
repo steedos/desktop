@@ -23,6 +23,7 @@ app.on('ready', function () {
         title: app.getName(),
         x: mainWindowState.x,
         y: mainWindowState.y,
+        'node-integration': false,
         width: mainWindowState.width,
         height: mainWindowState.height
     });
