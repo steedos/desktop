@@ -5,6 +5,7 @@
 'use strict';
 
 var app = require('app');
+var ipc = require('ipc');
 var path = require('path');
 var BrowserWindow = require('browser-window');
 var env = require('./vendor/electron_boilerplate/env_config');
@@ -45,8 +46,8 @@ app.on('ready', function () {
         mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
     }
 
-    devHelper.setDevMenu();
     if (env.name !== 'production') {
+        devHelper.setDevMenu();
         mainWindow.openDevTools();
     }
 
@@ -58,3 +59,9 @@ app.on('ready', function () {
 app.on('window-all-closed', function () {
     app.quit();
 });
+
+
+ipc.on('unread-changed', function(event, unread) {
+    mainWindow.flashFrame(true);
+});
+

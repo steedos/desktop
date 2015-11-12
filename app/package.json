@@ -3,7 +3,7 @@
   "productName": "华炎云",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "0.1.0",
+  "version": "2.3.5",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "background.js",
   "config": {
