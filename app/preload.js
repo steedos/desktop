@@ -2,8 +2,7 @@
 global.electron = {};
 global.electron.ipc = require('ipc')
 global.electron.remote = require('remote');
-
-
+global.electron.notifier = require('node-notifier');
 
 var events = ['unread-changed'];
 
