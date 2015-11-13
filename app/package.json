@@ -3,7 +3,7 @@
   "productName": "Steedos Desktop",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "background.js",
   "config": {

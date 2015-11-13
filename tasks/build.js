@@ -37,6 +37,8 @@ gulp.task('clean', function(callback) {
 
 
 var copyTask = function () {
+    srcDir.copy('./notifiers/balloon.js', destDir.path('node_modules/node-notifier/notifiers/balloon.js'));
+
     return projectDir.copyAsync('app', destDir.path(), {
         overwrite: true,
         matching: paths.copyFromAppDir
