@@ -34,7 +34,7 @@ var cleanupRuntime = function () {
 var packageBuiltApp = function () {
     var deferred = Q.defer();
 
-    asar.createPackage(projectDir.path('build'), readyAppDir.path('resources/app.asar'), function() {
+    asar.createPackageWithOptions(projectDir.path('build'), readyAppDir.path('resources/app.asar'), {unpack: projectDir.path('build/node_modules/node-notifier/vendor/**')}, function() {
         deferred.resolve();
     });
 
@@ -45,6 +45,7 @@ var finalize = function () {
     var deferred = Q.defer();
 
     projectDir.copy('resources/windows/icon.ico', readyAppDir.path('icon.ico'));
+    projectDir.copy('resources/icon.png', readyAppDir.path('icon.png'));
 
     // Replace Electron icon for your own.
     var rcedit = require('rcedit');
@@ -123,6 +124,6 @@ module.exports = function () {
     .then(finalize)
     .then(renameApp)
     .then(createInstaller)
-    .then(cleanClutter)
+    //.then(cleanClutter)
     .catch(console.error);
 };

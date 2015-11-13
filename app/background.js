@@ -46,8 +46,8 @@ app.on('ready', function () {
         mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
     }
 
+    devHelper.setDevMenu();
     if (env.name !== 'production') {
-        devHelper.setDevMenu();
         mainWindow.openDevTools();
     }
 

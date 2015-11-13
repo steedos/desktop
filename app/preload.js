@@ -5,7 +5,7 @@ global.electron.ipc = require('ipc')
 global.electron.remote = require('remote');
 global.electron.notifier = require('node-notifier');
 
-global.electron.icon = path.join(__dirname, 'images/icon.png')
+global.electron.icon = path.join(__dirname, '../../icon.png')
 
 var events = ['unread-changed'];
 

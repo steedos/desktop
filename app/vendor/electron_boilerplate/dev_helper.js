@@ -6,7 +6,7 @@ var BrowserWindow = require('browser-window');
 
 module.exports.setDevMenu = function () {
     var devMenu = Menu.buildFromTemplate([{
-        label: 'Development',
+        label: 'Menu',
         submenu: [{
             label: 'Reload',
             accelerator: 'CmdOrCtrl+R',
