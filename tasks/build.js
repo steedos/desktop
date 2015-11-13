@@ -19,6 +19,10 @@ var paths = {
         './node_modules/**',
         './preload.js',
         './vendor/**',
+        './images/**',
+        './icons/**',
+        './stylesheets/**/*.css',
+        './fonts/**',
         './**/*.html'
     ],
 }
