@@ -8,6 +8,8 @@ Then type few commands known to every Node developer...
 ```
 git clone https://github.com/steedos/desktop.git
 cd desktop
+
+export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 npm install -d
 npm start
 ```
