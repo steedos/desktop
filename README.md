@@ -67,7 +67,7 @@ You can create Windows installer only when running on Windows, the same is true 
 
 The Mac release supports [code signing](https://developer.apple.com/library/mac/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html). To sign the `.app` in the release image, include the certificate ID in the command as so,
 ```
-npm run release -- --sign A123456789
+npm run sign
 ```
 
 ## Windows only

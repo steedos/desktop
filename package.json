@@ -20,6 +20,7 @@
     "app-install": "node ./tasks/app_npm_install",
     "build": "gulp build",
     "release": "gulp release --env=production",
+    "sign": "gulp release --env=production --sign 'Developer ID Application: Shanghai HotLong Software Co. Ltd. (G6293UGCRM)'",
     "start": "node ./tasks/start",
     "test": "node ./tasks/start --env=test"
   }
