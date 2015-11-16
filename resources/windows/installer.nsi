@@ -1,4 +1,4 @@
-; NSIS packaging/install script
+﻿; NSIS packaging/install script
 ; Docs: http://nsis.sourceforge.net/Docs/Contents.html
 
 !include LogicLib.nsh
@@ -46,7 +46,33 @@ ShowInstDetails nevershow
 AutoCloseWindow false
 WindowIcon off
 
-Caption "${productName} Setup"
+; First is default
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\SimpChinese.nlf"
+
+; A multilingual message
+LangString Message_welcome ${LANG_ENGLISH} "Welcome to Steedos Desktop version 2.3.5 installer."
+LangString Message_welcome ${LANG_SIMPCHINESE} "欢迎安装华炎云（版本：2.3.5）"
+
+LangString Message_setup ${LANG_ENGLISH} "Steedos Desktop setup"
+LangString Message_setup ${LANG_SIMPCHINESE} "安装华炎云"
+
+LangString Message_click ${LANG_ENGLISH} "Click install to begin."
+LangString Message_click ${LANG_SIMPCHINESE} "点击“安装”，开始。"
+
+LangString Message_uninstall ${LANG_ENGLISH} "uninstall"
+LangString Message_uninstall ${LANG_SIMPCHINESE} "卸载“华炎云”"
+
+LangString Message_remove ${LANG_ENGLISH} "Remove also my Steedos Desktop personal data"
+LangString Message_remove ${LANG_SIMPCHINESE} "同时移除本机上的相关数据"
+
+LangString Message_waring ${LANG_ENGLISH} "If you really want to remove Steedos Desktop from your computer press uninstall button."
+LangString Message_waring ${LANG_SIMPCHINESE} "如果您确定要卸载“华炎云”，请点击“卸载”按钮。"
+
+LangString Message_question ${LANG_ENGLISH} "Don't like ${productName} anymore? Hit uninstall button."
+LangString Message_question ${LANG_SIMPCHINESE} "不再需要“华炎云”了吗？点击“卸载”按钮。"
+
+Caption $(Message_setup)
 ; Don't add sub-captions to title bar
 SubCaption 3 " "
 SubCaption 4 " "
@@ -71,7 +97,7 @@ Function welcome
 
     nsDialogs::Create 1018
 
-    ${NSD_CreateLabel} 185 1u 210 100% "Welcome to ${productName} version ${version} installer.$\r$\n$\r$\nClick install to begin."
+    ${NSD_CreateLabel} 185 1u 210 100% $(Message_welcome)$\r$\n$\r$\n$(Message_click)
 
     ${NSD_CreateBitmap} 0 0 170 210 ""
     Pop $Image
@@ -112,8 +138,8 @@ SectionEnd
 
 ShowUninstDetails nevershow
 
-UninstallCaption "Uninstall ${productName}"
-UninstallText "Don't like ${productName} anymore? Hit uninstall button."
+UninstallCaption $(Message_uninstall)
+UninstallText $(Message_question)
 UninstallIcon "${icon}"
 
 UninstPage custom un.confirm un.confirmOnLeave
@@ -127,9 +153,9 @@ Function un.confirm
 
     nsDialogs::Create 1018
 
-    ${NSD_CreateLabel} 1u 1u 100% 24u "If you really want to remove ${productName} from your computer press uninstall button."
+    ${NSD_CreateLabel} 1u 1u 100% 24u $(Message_waring)
 
-    ${NSD_CreateCheckbox} 1u 35u 100% 10u "Remove also my ${productName} personal data"
+    ${NSD_CreateCheckbox} 1u 35u 100% 10u $(Message_remove)
     Pop $RemoveAppDataCheckbox
 
     nsDialogs::Show
