@@ -47,8 +47,10 @@ app.on('ready', function () {
         //mainWindow.loadUrl('file://' + __dirname + '/app.html');
         mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
     }
-
-    devHelper.setDevMenu();
+    
+    if (process.platform == 'darwin') {
+        devHelper.setDevMenu();
+    }
     if (env.name !== 'production') {
         mainWindow.openDevTools();
     }
