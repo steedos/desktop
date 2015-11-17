@@ -1,6 +1,6 @@
 ﻿; NSIS packaging/install script
 ; Docs: http://nsis.sourceforge.net/Docs/Contents.html
-; SimpChinese.nlf://desktop/resources/windows
+; SimpChinese.nlf:/desktop/resources/windows
 
 !include LogicLib.nsh
 !include nsDialogs.nsh
@@ -125,6 +125,7 @@ Section "Install"
     ; Remove all application files copied by previous installation
     RMDir /r "$INSTDIR"
     RMDir /r "$DESKTOP\${productName}.lnk"
+    RMDir /r "$SMSTARTUP\${productName}.lnk"
     
     SetOutPath $INSTDIR
 
@@ -134,6 +135,7 @@ Section "Install"
     ; Create start menu shortcut
     CreateShortCut "$SMPROGRAMS\${productName}.lnk" "$INSTDIR\${exec}" "" "$INSTDIR\icon.ico"
     CreateShortCut "$DESKTOP\${productName}.lnk" "$INSTDIR\${exec}" "" "$INSTDIR\icon.ico"
+    CreateShortCut "$SMSTARTUP\${productName}.lnk" "$INSTDIR\${exec}" "" "$INSTDIR\icon.ico"
     WriteUninstaller "${uninstaller}"
 
 SectionEnd
@@ -183,7 +185,8 @@ Section "Uninstall"
 
     Delete "$SMPROGRAMS\${productName}.lnk"
     Delete "$DESKTOP\${productName}.lnk"
-
+    Delete "$SMSTARTUP\${productName}.lnk"
+    
     ; Remove whole directory from Program Files
     RMDir /r "$INSTDIR"
 
