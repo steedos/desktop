@@ -1,9 +1,9 @@
 {
   "name": "steedos-desktop",
-  "productName": "华炎云",
+  "productName": "Steedos Desktop",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "background.js",
   "config": {
