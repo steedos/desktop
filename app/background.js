@@ -31,6 +31,8 @@ app.on('ready', function () {
         'web-preferences': {
             'web-security': false
         },
+        // 自动隐藏菜单栏
+        autoHideMenuBar: true,
         width: mainWindowState.width,
         height: mainWindowState.height
     });
