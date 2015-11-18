@@ -5,6 +5,9 @@
 !include LogicLib.nsh
 !include nsDialogs.nsh
 
+;判断系统
+!include WinVer.nsh
+
 ; --------------------------------
 ; Variables
 ; --------------------------------
@@ -77,6 +80,9 @@ LangString Message_waring ${LANG_SIMPCHINESE} "如果您确定要卸载“${prod
 LangString Message_question ${LANG_ENGLISH} "Don't like ${productName} anymore? Hit uninstall button."
 LangString Message_question ${LANG_SIMPCHINESE} "不再需要“${productName}”了吗？点击“解除安装”按钮。"
 
+LangString Message_alert ${LANG_ENGLISH} "Win7 and above required"
+LangString Message_alert ${LANG_SIMPCHINESE} "对不起，华炎云不支持windows xp和windows vista操作系统，请使用chrome浏览器登录华炎云。"
+
 Caption $(Message_setup)
 ; Don't add sub-captions to title bar
 SubCaption 3 " "
@@ -89,6 +95,12 @@ Var Image
 Var ImageHandle
 
 Function .onInit
+    
+    ;判断系统（仅支持win7及win7以上系统）
+    ${IfNot} ${AtLeastWin7}
+        MessageBox MB_OK $(Message_alert)
+        Quit
+    ${EndIf}
 
     ; Extract banner image for welcome page
     InitPluginsDir
