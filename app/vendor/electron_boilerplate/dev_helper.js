@@ -16,29 +16,11 @@ module.exports.setDevMenu = function () {
 			    {
 			        label: 'About Steedos',
 			        role: 'about',
-			    },
-			    {
-			        label: 'Reload',
-			        accelerator: 'CmdOrCtrl+R',
-			        click: function () 
-			        {
-			            BrowserWindow.getFocusedWindow().reloadIgnoringCache();
-			        }
-			    },
-			    {
-			        label: 'Toggle DevTools',
-			        accelerator: 'Alt+CmdOrCtrl+I',
-			        click: function () 
-			        {
-			            BrowserWindow.getFocusedWindow().toggleDevTools();
-			        }
-			    },			 
+			    },			   			    		 
 			    {
 			        type: 'separator'
-			    },
-			    {
-			        type: 'separator'
-			    },
+			    
+			    },			    
 			    {
 			        label: 'Hide Steedos',
 			        accelerator: 'Command+H',
@@ -63,8 +45,7 @@ module.exports.setDevMenu = function () {
 			        {
 			            app.quit();
 			        }
-			    },
-
+			    }
 		    ]
 		},
 	    {
@@ -83,6 +64,7 @@ module.exports.setDevMenu = function () {
 		      	},
 		      	{
 		        	type: 'separator'
+		      	
 		      	},
 		      	{
 		        	label: 'Cut',
@@ -107,6 +89,34 @@ module.exports.setDevMenu = function () {
 	    	]
 	    },
 	    {
+	        label: 'View',
+	    	submenu: 
+	    	[
+		      	{
+			        label: 'Reload',
+			        accelerator: 'CmdOrCtrl+R',
+			        click: function () 
+			        {
+			            BrowserWindow.getFocusedWindow().reloadIgnoringCache();
+			        }
+			    },		      	
+	        	{
+			        type: 'separator'
+	        	},
+	        	{
+			        label: 'Toggle DevTools',
+			        accelerator: 'Alt+CmdOrCtrl+I',
+			        click: function () 
+			        {
+			            BrowserWindow.getFocusedWindow().toggleDevTools();
+			        }
+			    },
+			    {
+			        type: 'separator'
+	        	},			    		      	
+	    	]
+	    },
+	    {
 		    label: 'Window',
 		    role: 'window',
 		    submenu: 
@@ -115,20 +125,15 @@ module.exports.setDevMenu = function () {
 		        	label: 'Minimize',
 		        	accelerator: 'CmdOrCtrl+M',
 		        	role: 'minimize'
+		      	},		      	
+		      	{
+		        	label: 'Close',
+		        	accelerator: 'CmdOrCtrl+W',
+		        	role: 'close'
 		      	},
 		      	{
-		      		label: 'Toggle Full Screen',
-        			accelerator: (function() 
-        			{
-	          			if (process.platform == 'darwin')
-	          			{
-	         				return 'Ctrl+Command+F';
-	         			}
-	          			else
-	            		{
-	            			return 'F11';
-	            		}
-	        		})(),
+		      		label: 'Enter Full Screen',
+        			accelerator: 'Ctrl+Command+F',
 	        		click: function(item, focusedWindow) 
 	        		{
 	          			if (focusedWindow)
@@ -136,12 +141,7 @@ module.exports.setDevMenu = function () {
 	            			focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
 	        			}
 	        		}
-	        	},
-		      	{
-		        	label: 'Close',
-		        	accelerator: 'CmdOrCtrl+W',
-		        	role: 'close'
-		      	},
+	        	}
 		    ]
 		},
 		{
@@ -150,14 +150,14 @@ module.exports.setDevMenu = function () {
 		    submenu: 
 		    [
 		      	{
-		        	label: 'Learn More',
+		        	label: 'Steedos Help',
 		        	click: function() 
 		        	{ 
-		        		shell.openExternal('https://cn.steedos.com/us/');
+		        		shell.openExternal('https://cn.steedos.com/us/help/');
 		        	}
 		      	},
 		    ]
-		},
+		}
     ];
 
     var Template_zh = 
@@ -169,29 +169,11 @@ module.exports.setDevMenu = function () {
 		        {
 			        label: '关于华炎云',
 			        role: 'about'
-			    },
-		        {
-		            label: '重新载入',
-		            accelerator: 'CmdOrCtrl+R',
-		            click: function () 
-		            {
-		                BrowserWindow.getFocusedWindow().reloadIgnoringCache();
-		            }
-		        },
-		        {
-		            label: '开发者工具',
-		            accelerator: 'Alt+CmdOrCtrl+I',
-		            click: function () 
-		            {
-		                BrowserWindow.getFocusedWindow().toggleDevTools();
-		            }
-		        },		        		    
+			    },		      		        		        		    
 			    {
 			        type: 'separator'
-			    },			   
-			    {
-			        type: 'separator'
-			    },
+			    
+			    },			   			   
 			    {
 			        label: '隐藏华炎云',
 			        accelerator: 'Command+H',
@@ -220,7 +202,7 @@ module.exports.setDevMenu = function () {
 	        ]
 	    },
 	    {
-	        label: '修改',
+	        label: '编辑',
 	    	submenu: 
 	    	[
 		      	{
@@ -242,7 +224,7 @@ module.exports.setDevMenu = function () {
 		        	role: 'cut'
 		      	},
 		      	{
-		        	label: '复制',
+		        	label: '拷贝',
 		        	accelerator: 'CmdOrCtrl+C',
 		        	role: 'copy'
 		      	},
@@ -259,7 +241,35 @@ module.exports.setDevMenu = function () {
 	      	]
 	    },
 	    {
-		    label: '视图',
+	        label: '显示',
+	    	submenu: 
+	    	[
+		      	{
+			        label: '重新载入',
+			        accelerator: 'CmdOrCtrl+R',
+			        click: function () 
+			        {
+			            BrowserWindow.getFocusedWindow().reloadIgnoringCache();
+			        }
+			    },		      	
+	        	{
+			        type: 'separator'
+	        	},
+		        {
+		            label: '开发者工具',
+		            accelerator: 'Alt+CmdOrCtrl+I',
+		            click: function () 
+		            {
+		                BrowserWindow.getFocusedWindow().toggleDevTools();
+		            }
+		        },
+		        {
+			        type: 'separator'
+	        	}		              	
+	    	]
+	    },
+	    {
+		    label: '窗口',
 		    role: 'window',
 		    submenu: 
 		    [
@@ -267,20 +277,15 @@ module.exports.setDevMenu = function () {
 		        	label: '最小化',
 		        	accelerator: 'CmdOrCtrl+M',
 		        	role: 'minimize'
+		      	},		      	
+		      	{
+		        	label: '关闭',
+		        	accelerator: 'CmdOrCtrl+W',
+		        	role: 'close'
 		      	},
 		      	{
 		      		label: '进入全屏幕',
-        			accelerator: (function() 
-        			{
-	          			if (process.platform == 'darwin')
-	          			{
-	         				return 'Ctrl+Command+F';
-	         			}
-	          			else
-	            		{
-	            			return 'F11';
-	            		}
-	        		})(),
+        			accelerator: 'Ctrl+Command+F',
 	        		click: function(item, focusedWindow) 
 	        		{
 	          			if (focusedWindow)
@@ -288,12 +293,7 @@ module.exports.setDevMenu = function () {
 	            			focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
 	        			}
 	        		}
-	        	},
-		      	{
-		        	label: '关闭',
-		        	accelerator: 'CmdOrCtrl+W',
-		        	role: 'close'
-		      	}
+	        	}	
 		    ]
 		},
 		{
@@ -302,14 +302,14 @@ module.exports.setDevMenu = function () {
     		submenu: 
     		[
       			{
-        			label: '了解更多',
+        			label: '华炎云帮助',
         			click: function ()
 					{
-            			shell.openExternal('https://cn.steedos.com/cn/');
+            			shell.openExternal('https://cn.steedos.com/cn/help/');
         			}
       			},
     		]
-  		},
+  		}
     ];
     
 	var lang = app.getLocale();
