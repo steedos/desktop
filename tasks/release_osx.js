@@ -30,20 +30,67 @@ var copyBuiltApp = function () {
     return projectDir.copyAsync('build', finalAppDir.path('Contents/Resources/app.nw'));
 };
 
+// var cleanupRuntime = function() {
+//     finalAppDir.remove('Contents/Resources/default_app');
+//     finalAppDir.remove('Contents/Resources/atom.icns');
+//     return Q();
+// };
+
 var prepareOsSpecificThings = function () {
     // Info.plist
     var info = projectDir.read('resources/osx/Info.plist');
     info = utils.replace(info, {
         productName: manifest.productName,
+        identifier: manifest.identifier,
         version: manifest.version
     });
     finalAppDir.write('Contents/Info.plist', info);
 
+    // Prepare Info.plist of Helper apps
+    [' EH', ' NP', ''].forEach(function (helper_suffix) {
+        info = projectDir.read('resources/osx/helper_apps/Info' + helper_suffix + '.plist');
+        info = utils.replace(info, {
+            productName: manifest.productName,
+            identifier: manifest.identifier
+        });
+        finalAppDir.write('Contents/Frameworks/nwjs Helper' + helper_suffix + '.app/Contents/Info.plist', info);
+    });
+
     // Icon
     projectDir.copy('resources/osx/icon.icns', finalAppDir.path('Contents/Resources/icon.icns'));
 
+    // Rename helpers
+    [' Helper EH', ' Helper NP', ' Helper'].forEach(function (helper_suffix) {
+        finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app/Contents/MacOS/nwjs' + helper_suffix, manifest.productName + helper_suffix );
+        finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app', manifest.productName + helper_suffix + '.app');
+    });
+    // Rename application
+    finalAppDir.rename('Contents/MacOS/nwjs', manifest.productName);
+
     return Q();
 };
+
+// var renameApp = function() {
+//     // Rename helpers
+//     [' Helper EH', ' Helper NP', ' Helper'].forEach(function (helper_suffix) {
+//         finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app/Contents/MacOS/nwjs' + helper_suffix, manifest.productName + helper_suffix );
+//         finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app', manifest.productName + helper_suffix + '.app');
+//     });
+//     // Rename application
+//     finalAppDir.rename('Contents/MacOS/nwjs', manifest.productName);
+//     return Q();
+// };
+
+// var signApp = function () {
+//     var identity = utils.getSigningId();
+//     if (identity) {
+//         var cmd = 'codesign --deep --force --sign "' + identity + '" "' + finalAppDir.path() + '"';
+//         gulpUtil.log('Signing with:', cmd);
+//         return Q.nfcall(child_process.exec, cmd);
+//     } else {
+//         return Q();
+//     }
+// }
 
 var packToDmgFile = function () {
     var deferred = Q.defer();
@@ -90,7 +137,11 @@ module.exports = function () {
     return init()
     .then(copyRuntime)
     .then(copyBuiltApp)
+    // .then(cleanupRuntime)
     .then(prepareOsSpecificThings)
+    // .then(renameApp)
+    // .then(signApp)
     .then(packToDmgFile)
-    .then(cleanClutter);
+    .then(cleanClutter)
+    .catch(console.error);
 };
