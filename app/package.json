@@ -1,0 +1,23 @@
+{
+  "name": "steedos-desktop",
+  "productName": "华炎云",
+  "identifier": "com.steedos.desktop",
+  "description": "",
+  "version": "3.0.2",
+  "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
+  "main": "app.html",
+  "window": {
+    "title":"Steedos",
+    "icon": "icon.png",
+    "show": true,
+    "toolbar": false,
+    "width": 1000,
+    "height": 600,
+    "min_width": 800,
+    "min_height": 400,
+    "position": "center"
+  },
+  "dependencies": {
+    "fs-jetpack": "^0.6.4"
+  }
+}
