@@ -45,7 +45,7 @@ app.on('ready', function () {
         mainWindow.loadUrl('file://' + __dirname + '/spec.html');
     } else {
         //mainWindow.loadUrl('file://' + __dirname + '/app.html');
-        mainWindow.loadUrl('https://www.steedos.com/system/steedos/');
+        mainWindow.loadUrl('https://cn.steedos.com');
     }
     
     if (process.platform == 'darwin') {
