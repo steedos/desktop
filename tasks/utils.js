@@ -27,3 +27,12 @@ module.exports.replace = function (str, patterns) {
 module.exports.getEnvName = function () {
     return argv.env || 'development';
 };
+
+module.exports.getSigningId = function () {
+    return argv.sign;
+};
+
+module.exports.getNW = function () {
+    var manifest = jetpack.read(__dirname + '/../package.json', 'json');
+    return manifest.devDependencies['nw'].substring(1);
+};
