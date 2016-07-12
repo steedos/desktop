@@ -63,6 +63,11 @@ var finalize = function () {
 };
 
 var renameApp = function() {
+    // Rename helpers
+    // [' Helper EH', ' Helper NP', ' Helper'].forEach(function (helper_suffix) {
+    //     finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app/Contents/MacOS/nwjs' + helper_suffix, manifest.productName + helper_suffix );
+    //     finalAppDir.rename('Contents/Frameworks/nwjs' + helper_suffix + '.app', manifest.productName + helper_suffix + '.app');
+    // });
     // Rename application
     finalAppDir.rename('Contents/MacOS/nwjs', manifest.productName);
     return Q();

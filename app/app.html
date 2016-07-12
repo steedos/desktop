@@ -20,8 +20,9 @@
             // Create default menu items for OSX
             if (process.platform === 'darwin') {
                 var mb = new gui.Menu({ type: "menubar" });
-                mb.createMacBuiltin(gui.App.manifest.productName);
+                mb.createMacBuiltin(gui.App.manifest.productName);   
                 win.menu = mb;
+                // mb.Menu.remove('Start Dictation...');
             }
         }());
     </script>
@@ -32,7 +33,7 @@
         requirejs(['app'], function (app) {});
     </script>
     <script type="text/javascript">
-        window.location = 'https://cn.steedos.com';
+        window.location = 'https://www.steedos.com/steedos/springboard/';
     </script>
 </head>
 <body>

@@ -22,5 +22,8 @@
     "test": "node ./tasks/start --env=test",
     "sign": "gulp release --env=production --sign 'Developer ID Application: Shanghai HotLong Software Co. Ltd. (G6293UGCRM)'",
     "release": "./node_modules/.bin/gulp release --env=production"
+  },
+  "dependencies": {
+    "node-notifier": "^4.6.0"
   }
 }
