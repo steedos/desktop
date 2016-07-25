@@ -98,10 +98,27 @@ It will start the packaging process for operating system you are running this co
 
 You can create Windows installer only when running on Windows, the same is true for Linux and OSX. So to generate all three installers you need all three operating systems.
 
+## Mac only
 
-## Special precautions for Windows
+#### App signing
+
+The Mac release supports [code signing](https://developer.apple.com/library/mac/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html). To sign the `.app` in the release image, include the certificate ID in the command as so,
+```
+npm run sign
+```
+
+#### 支持MP3、MP4（MAC）
+
+nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的ffmpegsumo.so拷贝到/steedos-desktop/node_modules/nw/nwjs/nwjs.app/Contents/Frameworks/nwjs Framework.framework/Libraries/中，替换原文件，重启服务便可生效。
+
+## Windows only
+
+#### Special precautions for Windows
 As installer [NSIS](http://nsis.sourceforge.net/Main_Page) is used. You have to install it (version 3.0), and add NSIS folder to PATH in Environment Variables, so it is reachable to scripts in this project (path should look something like `C:/Program Files (x86)/NSIS`).
 
+#### 支持MP3、MP4（Windows）
+
+nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的ffmpegsumo.dll拷贝到/steedos-desktop/node_modules/nw/nwjs/中，替换原文件，重启服务便可生效。
 
 # License
 
