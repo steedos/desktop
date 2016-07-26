@@ -3,9 +3,6 @@
 
 var gui = require('nw.gui'); 
 
-var globalWindow = gui.Window.get()
-globalWindow.hide();
-
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
