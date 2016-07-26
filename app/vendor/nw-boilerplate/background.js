@@ -18,7 +18,6 @@ cos.require = function (module){
     if (win.window && win.window.location && win.window.location.host.endsWith(".steedos.com"))
         return require(module);
 }
-cos.notifier = require('node-notifier');
 
 win.on("loaded", function(){
     if (win.window){
