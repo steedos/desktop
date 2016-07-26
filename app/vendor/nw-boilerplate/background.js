@@ -1,9 +1,10 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
 
-// require('./vendor/nw-boilerplate/menu');
-
 var gui = require('nw.gui'); 
+
+var globalWindow = gui.Window.get()
+globalWindow.hide();
 
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
@@ -15,9 +16,8 @@ var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     position: 'center'
 });
 
-
 win.on("loaded", function(){
-    if (win.window && win.window.location.host.endsWith(".steedos.com")){
+    if (win.window){
         win.window.cos = {}
         win.window.cos.notifier = require('node-notifier');
     }

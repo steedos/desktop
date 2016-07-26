@@ -1,6 +1,6 @@
 {
   "name": "steedos-desktop",
-  "productName": "华炎云",
+  "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
   "version": "3.0.3",
@@ -11,12 +11,9 @@
     "title":"Steedos",
     "icon": "icon.png",
     "show": false,
-    "toolbar": true,
+    "toolbar": false,
     "width": 1000,
-    "height": 600,
-    "min_width": 800,
-    "min_height": 400,
-    "position": "center"
+    "height": 600
   },
   "dependencies": {
     "fs-jetpack": "^0.7.0",
