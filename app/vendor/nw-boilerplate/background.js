@@ -4,13 +4,6 @@
 // require('./vendor/nw-boilerplate/menu');
 
 var gui = require('nw.gui'); 
-var web = gui.Window.get();
-
-web.hide();
-
-// web.removeAllListeners('hide');
-
-// var win = gui.Shell.openExternal('https://www.steedos.com/steedos/springboard');
 
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
@@ -23,8 +16,9 @@ var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
 });
 
 
-win.notifier = {};
-win.path = {};
-
-win.notifier = require('node-notifier');
-win.path = require('path');
+win.on("loaded", function(){
+    if (win.window && win.window.location.host.endsWith(".steedos.com")){
+        win.window.cos = {}
+        win.window.cos.notifier = require('node-notifier');
+    }
+})

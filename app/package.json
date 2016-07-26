@@ -6,10 +6,11 @@
   "version": "3.0.3",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "app.html",
+  "node-remote": "127.0.0.1",
   "window": {
     "title":"Steedos",
     "icon": "icon.png",
-    "show": true,
+    "show": false,
     "toolbar": true,
     "width": 1000,
     "height": 600,
