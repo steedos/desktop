@@ -6,6 +6,7 @@ var gui = require('nw.gui');
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
+    toolbar: false,
     width: 1000,
     height: 600,
     min_width: 800,
