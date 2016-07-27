@@ -1,7 +1,9 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
 
-var gui = require('nw.gui'); 
+var gui = require('nw.gui');
+
+var globalWindow = gui.Window.get(); 
 
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
@@ -24,4 +26,12 @@ win.on("loaded", function(){
     if (win.window){
         win.window.cos = cos
     }
+})
+
+//关闭华炎云时，将没有显示的主窗口关掉
+win.on("close",function(){
+    if(win.window){
+        globalWindow.close(true)
+    }
+    win.close();
 })
