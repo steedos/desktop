@@ -21,6 +21,10 @@ cos.require = function (module){
     if (win.window && win.window.location && win.window.location.host.endsWith(".steedos.com"))
         return require(module);
 }
+//恢复最小化窗口
+cos.win_restore = function(){
+    win.restore();
+}
 
 win.on("loaded", function(){
     if (win.window){
