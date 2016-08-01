@@ -8,7 +8,7 @@
   "main": "app.html",
   "node-remote": "127.0.0.1",
   "window": {
-    "title":"Steedos",
+    "title":"Steedos-dev",
     "icon": "icon.png",
     "show": false,
     "toolbar": true,
