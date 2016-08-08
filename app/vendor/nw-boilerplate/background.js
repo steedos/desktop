@@ -1,5 +1,6 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
+require("babel-polyfill");
 
 var gui = require('nw.gui');
 

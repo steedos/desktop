@@ -15,7 +15,7 @@
     "width": 1000,
     "height": 600
   },
-  "js-flags": "--harmony --harmony_arrow_functions --harmony_modules --harmony_classes --harmony_proxies",
+  "js-flags-disabled": "--harmony --harmony_arrow_functions --es_staging",
   "dependencies": {
     "fs-jetpack": "^0.7.0",
     "node-notifier": "^4.6.0",
