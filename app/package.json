@@ -3,7 +3,7 @@
   "productName": "Steedos-dev",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "app.html",
   "node-remote": "127.0.0.1",
@@ -15,10 +15,15 @@
     "width": 1000,
     "height": 600
   },
+  "js-flags-disabled": "--harmony --harmony_arrow_functions --es_staging",
   "dependencies": {
     "fs-jetpack": "^0.7.0",
     "node-notifier": "^4.6.0",
     "node-forge": "0.6.41",
+<<<<<<< HEAD
+=======
+    "babel-polyfill": "6.13.0",
+>>>>>>> nw_boilerplate
     "emailjs-imap-client": "2.0.2",
     "emailjs-smtp-client": "1.0.0",
     "emailjs-addressparser": "1.0.1",

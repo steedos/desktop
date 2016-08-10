@@ -14,9 +14,7 @@ var destDir = projectDir.cwd('./build');
 
 var paths = {
     jsCodeToTranspile: [
-        'app/**/*.js',
-        '!app/node_modules/**',
-        '!app/vendor/**'
+        'app/**/emailjs*/src/*.js'
     ],
     copyFromAppDir: [
         './node_modules/**',
@@ -53,11 +51,11 @@ gulp.task('copy-watch', copyTask);
 var transpileTask = function () {
     return gulp.src(paths.jsCodeToTranspile)
     .pipe(sourcemaps.init())
-    .pipe(babel({ modules: 'amd' }))
+    .pipe(babel({}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(destDir.path()));
 };
-gulp.task('transpile', ['clean'], transpileTask);
+gulp.task('transpile', ['clean', 'copy'], transpileTask);
 gulp.task('transpile-watch', transpileTask);
 
 

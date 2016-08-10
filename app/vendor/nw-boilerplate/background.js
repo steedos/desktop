@@ -1,5 +1,6 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
+require("babel-polyfill");
 
 var gui = require('nw.gui');
 
@@ -16,10 +17,17 @@ var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     position: 'center'
 });
 
+cos_enabled_domain = ["127.0.0.1", "localhost", ".steedos.com", ".petrochina.com.cn"]
 cos = {}
 cos.require = function (module){
-    if (win.window && win.window.location && win.window.location.host.endsWith(".steedos.com"))
-        return require(module);
+    if (win.window && win.window.location)
+    {
+        hostname = win.window.location.hostname
+        for (i=0; i<cos_enabled_domain.length; i++)
+            if (hostname.endsWith(cos_enabled_domain[i]))
+                return require(module);
+    }
+    return undefined
 }
 
 cos.win_focus = function(){
