@@ -6,7 +6,7 @@
   "version": "3.0.5",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "app.html",
-  "node-remote": "127.0.0.1",
+  "node-remote": "cn.steedos.com,us.steedos.com,127.0.0.1,localhost",
   "window": {
     "title":"Steedos-dev",
     "icon": "icon.png",
