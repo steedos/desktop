@@ -9,7 +9,7 @@ var globalWindow = gui.Window.get();
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    toolbar: false,
+    toolbar: true,
     width: 1000,
     height: 600,
     min_width: 800,
@@ -30,6 +30,8 @@ cos.require = function (module){
     return undefined
 }
 
+cos.office_signal = '';
+
 cos.win_focus = function(){
     win.restore();//恢复最小化窗口
     win.focus();//获取焦点
@@ -38,14 +40,18 @@ cos.win_focus = function(){
 // 重新载入时再次传入cos对象
 win.on("loaded", function(){
     if (win.window){
-        win.window.cos = cos
+        win.window.cos = cos;
     }
 })
 
 //关闭华炎云时，将没有显示的主窗口关掉
 win.on("close",function(){
     if(win.window){
-        globalWindow.close(true)
-    }
-    win.close();
+        if(cos.office_signal == "editing"){
+            alert("请完成编辑后退出office程序，再关闭审批王");
+        }else{
+            globalWindow.close(true);
+            win.close();
+        }
+    }    
 })
