@@ -1,6 +1,6 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
-require("babel-polyfill");
+// require("babel-polyfill");
 
 var gui = require('nw.gui');
 
@@ -9,7 +9,7 @@ var globalWindow = gui.Window.get();
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    toolbar: false,
+    toolbar: true,
     width: 1000,
     height: 600,
     min_width: 800,
@@ -34,7 +34,9 @@ cos.win_focus = function(){
     win.restore();//恢复最小化窗口
     win.focus();//获取焦点
 }
-
+cos.office_signal = function(signal){
+    return signal;
+}
 // 重新载入时再次传入cos对象
 win.on("loaded", function(){
     if (win.window){
@@ -45,7 +47,11 @@ win.on("loaded", function(){
 //关闭华炎云时，将没有显示的主窗口关掉
 win.on("close",function(){
     if(win.window){
-        globalWindow.close(true)
+        if(cos.office_signal() == "editing"){
+            alert("editing");
+        }else{
+            globalWindow.close(true);
+            win.close(true);
+        }
     }
-    win.close();
 })

@@ -20,10 +20,7 @@
     "fs-jetpack": "^0.7.0",
     "node-notifier": "^4.6.0",
     "node-forge": "0.6.41",
-<<<<<<< HEAD
-=======
     "babel-polyfill": "6.13.0",
->>>>>>> nw_boilerplate
     "emailjs-imap-client": "2.0.2",
     "emailjs-smtp-client": "1.0.0",
     "emailjs-addressparser": "1.0.1",
