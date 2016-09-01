@@ -37,6 +37,15 @@ cos.win_focus = function(){
 cos.office_signal = function(signal){
     return signal;
 }
+
+officeAlert = function(){
+    var local = window.navigator.language;
+    if (local == "zh-cn"){
+        alert("正在编辑office文档，请在编辑完成后，再关闭华炎云.")；
+    }else{
+        alert("You are editing office document,please close Steedos after you have finished editing.");
+    }
+}
 // 重新载入时再次传入cos对象
 win.on("loaded", function(){
     if (win.window){
@@ -47,11 +56,11 @@ win.on("loaded", function(){
 //关闭华炎云时，将没有显示的主窗口关掉
 win.on("close",function(){
     if(win.window){
-        if(cos.office_signal() == "editing"){
-            alert("editing");
+        if(cos.office_signal == "editing"){
+            officeAlert();
         }else{
             globalWindow.close(true);
-            win.close(true);
+            win.close();
         }
     }
 })
