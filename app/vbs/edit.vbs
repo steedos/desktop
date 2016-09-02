@@ -24,7 +24,7 @@ Sub Edit(filename)
         Exit Sub
     End If
 
-    '获取文件后缀名 
+    ' 获取文件后缀名 
     strExt = objFSO.GetExtensionName(strFile)
     ' 获取文件名
     baseName = objFSO.GetBaseName(strFile)
@@ -63,9 +63,11 @@ Sub EditDocument( strFile )
 
 End Sub
 
+
 Sub oDocument_Close()
-    oDocument.Save()
+
     FileClosed = True
+
 End Sub
 
 ' Sub EditWorkbook( strFile )
