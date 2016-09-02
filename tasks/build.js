@@ -23,6 +23,7 @@ var paths = {
         './icons/**',
         './stylesheets/**/*.css',
         './fonts/**',
+        './vbs/**',
         './**/*.html'
     ],
 }

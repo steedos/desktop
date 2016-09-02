@@ -57,12 +57,6 @@ win.on("loaded", function(){
 win.on("close",function(){
     if(win.window){
         if(cos.office_signal == "editing"){
-            // var local = window.navigator.language;
-            // if (local == "zh-cn"){
-            //     alert("正在编辑office文档，请在编辑完成后，再关闭华炎云.");
-            // }else{
-            //     alert("You are editing office document,please close Steedos after you have finished editing.");
-            // }
             officeAlert();
         }else{
             globalWindow.close(true);
