@@ -65,7 +65,7 @@ End Sub
 
 
 Sub oDocument_Close()
-
+    oDocument.Save()
     FileClosed = True
 
 End Sub
