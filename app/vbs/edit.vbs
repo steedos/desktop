@@ -2,10 +2,11 @@
 Dim oWord, oDocument, oExcel, oWorkbook, oPPT, oPresentation, FileClosed
 FileClosed = False
 
-Dim filename, baseName
+Dim filename, baseName, username
 
 
 filename = Wscript.Arguments.Item(0)
+username = Wscript.Arguments.Item(1)
 Edit(filename)
 
 Sub Edit(filename)
@@ -54,6 +55,10 @@ Sub EditDocument( strFile )
 
         ' Open the Word document
         .Documents.Open strFile
+
+        .ActiveDocument.Application.UserName = username
+
+        .ActiveDocument.TrackRevisions = true
 
         ' Make the opened file the active document
         Set oDocument = .ActiveDocument
