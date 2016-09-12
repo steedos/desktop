@@ -41,9 +41,9 @@ cos.office_signal = function(signal){
 var officeAlert = function(){
     var local = window.navigator.language;
     if (local == "zh-cn"){
-        alert("正在编辑office文档，请在编辑完成后，再关闭华炎云.");
+        swal("正在编辑office文档，请在编辑完成后，再关闭华炎云。");
     }else{
-        alert("You are editing office document,please close Steedos after you have finished editing.");
+        swal("You are editing office document,please close Steedos after you have finished editing.");
     }
 }
 // 重新载入时再次传入cos对象
@@ -59,8 +59,8 @@ win.on("close",function(){
         if(cos.office_signal == "editing"){
             officeAlert();
         }else{
-            globalWindow.close(true);
             win.close();
+            globalWindow.close(true);
         }
     }
 })
