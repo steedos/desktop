@@ -38,7 +38,7 @@ cos.office_signal = function(signal){
     return signal;
 }
 
-var officeAlert = function(){
+cos.officeAlert = function(){
     var local = window.navigator.language;
     if (local == "zh-cn"){
         swal("正在编辑office文档，请在编辑完成后，再关闭华炎云。");
@@ -57,7 +57,7 @@ win.on("loaded", function(){
 win.on("close",function(){
     if(win.window){
         if(cos.office_signal == "editing"){
-            officeAlert();
+            cos.officeAlert();
         }else{
             win.close();
             globalWindow.close(true);
