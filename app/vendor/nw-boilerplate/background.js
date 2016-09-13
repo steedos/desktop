@@ -49,8 +49,7 @@ win.on("loaded", function(){
 //关闭华炎云时，将没有显示的主窗口关掉
 win.on("close",function(){
     if(win.window && (cos.office_signal != "editing")){
-            win.close(true);
-            globalWindow.close(true);
-        }
+        win.close(true);
+        globalWindow.close(true);
     }
 })
