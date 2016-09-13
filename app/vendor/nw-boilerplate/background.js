@@ -11,7 +11,7 @@ var swal = require('sweetalert');
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    toolbar: true,
+    toolbar: false,
     width: 1000,
     height: 600,
     min_width: 800,
@@ -19,7 +19,7 @@ var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     position: 'center'
 });
 
-cos_enabled_domain = ["127.0.0.1", "localhost", "192.168.0.189", ".steedos.com", ".petrochina.com.cn"]
+cos_enabled_domain = ["127.0.0.1", "localhost", ".steedos.com", ".petrochina.com.cn"]
 cos = {}
 cos.require = function (module){
     if (win.window && win.window.location)
