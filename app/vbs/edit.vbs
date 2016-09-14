@@ -1,10 +1,12 @@
 
-Dim oWord, oDocument, FileClosed
+Dim oWord, oDocument, oExcel, oWorkbook, oPPT, oPresentation, FileClosed
 FileClosed = False
 
-Dim filename
+Dim filename, baseName, username
+
 
 filename = Wscript.Arguments.Item(0)
+username = Wscript.Arguments.Item(1)
 Edit(filename)
 
 Sub Edit(filename)
@@ -23,12 +25,19 @@ Sub Edit(filename)
         Exit Sub
     End If
 
-    strExt = Right(strFile, 5)
+    ' 获取文件后缀名 
+    strExt = objFSO.GetExtensionName(strFile)
+    ' 获取文件名
+    baseName = objFSO.GetBaseName(strFile)
 
-    If strExt = ".docx" or strExt = ".doc" then
+    If strExt = "docx" or strExt = "doc" then
         EditDocument(strFile)
-    ElseIf strExt = ".xlsx" or strExt = ".xls" then
-        EditWorkbook(strFile)
+    ' --------To Do-------------
+    ' ElseIf strExt = "xlsx" or strExt = "xls" then
+    '     EditWorkbook(strFile)
+    ' ElseIf strExt = "pptx" or strExt = "ppt" then
+    '     EditPresentation(strFile)
+    ' ---------------------------
     Else
         FileClosed = True
     End If
@@ -42,10 +51,14 @@ Sub EditDocument( strFile )
 
     With oWord
         ' True: make Word visible; False: invisible
-        .Visible = True
+        .Visible = true
 
         ' Open the Word document
         .Documents.Open strFile
+
+        .ActiveDocument.Application.UserName = username
+
+        .ActiveDocument.TrackRevisions = true
 
         ' Make the opened file the active document
         Set oDocument = .ActiveDocument
@@ -55,15 +68,65 @@ Sub EditDocument( strFile )
 
 End Sub
 
+
 Sub oDocument_Close()
     oDocument.Save()
     FileClosed = True
+
 End Sub
 
-Sub EditWorkbook( strFile )
-    WScript.Echo strFile & vbCrLf
-    FileClosed = True
-End Sub
+' Sub EditWorkbook( strFile )
+    
+'     WScript.Echo baseName & vbCrLf
+
+'     Set oExcel = WScript.CreateObject( "Excel.Application", "oExcel_")
+
+'     With oExcel
+    
+
+'         .Workbooks.Open strFile
+
+'         WScript.Echo "11111"
+        
+'         .Visible = True
+
+'         Set oWorkbook = .ActiveWorkbook
+'         WScript.ConnectObject oWorkbook, "oWorkbook_"
+
+'     End With
+
+' End Sub
+
+' Sub oWorkbook_Close()
+'     oWorkbook.Save()
+'     FileClosed = True
+' End Sub
+
+' Sub EditPresentation( strFile )
+
+'     ' FileClosed = False
+'     ' Create a ppt object
+'     Set oPPT = WScript.CreateObject( "PowerPoint.Application", "oPPT_" )
+
+'     With oPPT
+'         ' True: make ppt visible; False: invisible
+'         .Visible = True
+
+'         ' Open the ppt document
+'         .Presentations.Open strFile
+
+'         ' Make the opened file the active document
+'         Set oPresentation = .ActivePresentation
+'         WScript.ConnectObject oPresentation, "oPresentation_"
+
+'     End With
+
+' End Sub
+
+' Sub oPresentation_Close()
+'     oPresentation.Save()
+'     FileClosed = True
+' End Sub
 
 Do Until FileClosed
     WScript.sleep 1000
