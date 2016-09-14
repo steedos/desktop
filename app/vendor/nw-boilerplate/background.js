@@ -1,17 +1,16 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
 // require("babel-polyfill");
+require("babel-polyfill");
 
 var gui = require('nw.gui');
 
 var globalWindow = gui.Window.get(); 
 
-var swal = require('sweetalert');
-
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    toolbar: true,
+    toolbar: false,
     width: 1000,
     height: 600,
     min_width: 800,

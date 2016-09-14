@@ -3,7 +3,7 @@
   "productName": "Steedos-dev",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "app.html",
   "node-remote": "cn.steedos.com,us.steedos.com,127.0.0.1,localhost",
