@@ -11,7 +11,7 @@ var swal = require('sweetalert');
 var win = gui.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    toolbar: false,
+    toolbar: true,
     width: 1000,
     height: 600,
     min_width: 800,
