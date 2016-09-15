@@ -17,7 +17,7 @@ var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
     position: 'center'
 }, function(win){
 
-    cos_enabled_domain = ["127.0.0.1", "localhost", ".steedos.com", ".petrochina.com.cn"]
+    cos_enabled_domain = ["127.0.0.1", "localhost", ".steedos.com", "steedos.ticp.net", ".petrochina.com.cn"]
     cos = {}
     cos.require = function (module){
         if (win.window && win.window.location)
@@ -37,9 +37,7 @@ var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
 
     // 重新载入时再次传入cos对象
     win.on("loaded", function(){
-        if (win.window){
-            win.window.cos = cos
-        }
+        win.window.cos = cos
     })
     
     cos.office_signal = function(signal){
