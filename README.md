@@ -108,8 +108,9 @@ npm run sign
 ```
 
 #### 支持MP3、MP4（MAC）
+https://github.com/iteufel/nwjs-ffmpeg-prebuilt
 
-nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的ffmpegsumo.so拷贝到/steedos-desktop/node_modules/nw/nwjs/nwjs.app/Contents/Frameworks/nwjs Framework.framework/Libraries/中，替换原文件，重启服务便可生效。
+nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的libffmpeg.dylib拷贝到/steedos-desktop/node_modules/nw/nwjs/nwjs.app/Contents/Frameworks/nwjs Framework.framework/Libraries/中，替换原文件，重启服务便可生效。
 
 ## Windows only
 
@@ -117,8 +118,9 @@ nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录f
 As installer [NSIS](http://nsis.sourceforge.net/Main_Page) is used. You have to install it (version 3.0), and add NSIS folder to PATH in Environment Variables, so it is reachable to scripts in this project (path should look something like `C:/Program Files (x86)/NSIS`).
 
 #### 支持MP3、MP4（Windows）
+https://github.com/iteufel/nwjs-ffmpeg-prebuilt
 
-nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的ffmpegsumo.dll拷贝到/steedos-desktop/node_modules/nw/nwjs/中，替换原文件，重启服务便可生效。
+nwjs自带的ffmpeg不支持MP3、MP4格式的文件，需要将项目根目录ffmpeg文件夹中的ffmpeg.dll拷贝到/steedos-desktop/node_modules/nw/nwjs/中，替换原文件，重启服务便可生效。
 
 # License
 

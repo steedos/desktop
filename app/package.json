@@ -3,15 +3,15 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.0.5",
+  "version": "3.1.0",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "app.html",
-  "node-remote": "cn.steedos.com,us.steedos.com,127.0.0.1,localhost",
+  "nodejs": true,
+  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/"],
   "window": {
     "title":"Steedos",
     "icon": "icon.png",
     "show": false,
-    "toolbar": false,
     "width": 1000,
     "height": 600
   },
