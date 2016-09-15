@@ -39,14 +39,10 @@ var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
     win.on("loaded", function(){
         win.window.cos = cos
     })
-    
-    cos.office_signal = function(signal){
-        return signal;
-    }
 
     //关闭华炎云时，将没有显示的主窗口关掉
     win.on("close",function(){
-        if(win.window && (cos.office_signal != "editing")){
+        if(win && (cos.office_signal != "editing")){
             win.close(true);
             globalWindow.close(true);
         }
