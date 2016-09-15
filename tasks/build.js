@@ -104,4 +104,4 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('build', ['transpile', 'less', 'copy', 'finalize']);
+gulp.task('build', ['less', 'copy', 'finalize']);
