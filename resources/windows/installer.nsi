@@ -17,8 +17,8 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\SimpChinese.nlf"
 
 ; Set name using the normal interface (Name command)
-LangString Name ${LANG_ENGLISH} "Steedos Desktop"
-LangString Name ${LANG_SIMPCHINESE} "华炎云"
+LangString Name ${LANG_ENGLISH} "Steedos"
+LangString Name ${LANG_SIMPCHINESE} "Steedos"
 BrandingText " "
 
 !define dest "{{dest}}"
