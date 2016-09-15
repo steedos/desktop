@@ -3,7 +3,6 @@
 // require("babel-polyfill");
 require("babel-polyfill");
 
-var ne = require('nw');
 var gui = require('nw.gui');
 
 var globalWindow = nw.Window.get(); 
