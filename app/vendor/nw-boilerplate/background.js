@@ -1,5 +1,6 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
+// require("babel-polyfill");
 require("babel-polyfill");
 
 var ne = require('nw');
@@ -41,10 +42,16 @@ var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
             win.window.cos = cos
         }
     })
+    
+    cos.office_signal = function(signal){
+        return signal;
+    }
 
     //关闭华炎云时，将没有显示的主窗口关掉
-    win.on("closed",function(){
-        globalWindow.close(true)
+    win.on("close",function(){
+        if(win.window && (cos.office_signal != "editing")){
+            win.close(true);
+            globalWindow.close(true);
+        }
     })
-
 });
