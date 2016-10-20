@@ -1,22 +1,22 @@
 // require('./vendor/nw-boilerplate/menu');
 // var gui = global.window.nwDispatcher.requireNwGui();
-// require("babel-polyfill");
-require("babel-polyfill");
+nw.require("babel-polyfill");
 
-var gui = require('nw.gui');
+var gui = nw.require('nw.gui');
 
 var globalWindow = nw.Window.get(); 
 
 var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
     title:'Steedos',
     icon: 'icon.png',
-    width: 1000,
-    height: 600,
-    min_width: 800,
-    min_height: 400,
+    width: 1300,
+    height: 800,
+    min_width: 1000,
+    min_height: 600,
+    show: false,
     position: 'center'
 }, function(win){
-
+    win.maximize();
     cos_enabled_domain = ["127.0.0.1", "localhost", ".steedos.com", "steedos.ticp.net", ".petrochina.com.cn"]
     cos = {}
     cos.require = function (module){
