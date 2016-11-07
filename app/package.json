@@ -5,22 +5,21 @@
   "description": "",
   "version": "3.1.1",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
-  "main": "https://www.steedos.com/steedos/springboard/",
+  "main": "http://10.103.10.130/",
   "nodejs": true,
-  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/"],
+  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/","http://10.103.10.130/"],
   "window": {
     "title":"Steedos",
     "icon": "icon.png",
     "show": true,
-    "width": 1000,
-    "height": 600
+    "width": 1600,
+    "height": 1000
   },
   "js-flags-disabled": "--harmony --harmony_arrow_functions --es_staging",
   "dependencies": {
     "fs-jetpack": "^0.7.0",
     "node-notifier": "^4.6.0",
     "node-forge": "0.6.41",
-    "babel-polyfill": "6.13.0",
     "edge": "6.5.1"
   }
 }
