@@ -46,12 +46,19 @@ var finalize = function () {
     });
     finalAppDir.write('Contents/Info.plist', info);
 
+    // Remove i18n files, otherwise the app will always named as nwjs
+    finalAppDir.find("Contents/Resources", {
+        matching: '*.lproj'
+    }).forEach(function(dir_name){
+        finalAppDir.remove(dir_name)
+    });
+
     // Prepare Info.plist of Helper apps
     [' EH', ' NP', ''].forEach(function (helper_suffix) {
         info = projectDir.read('resources/osx/helper_apps/Info' + helper_suffix + '.plist');
         info = utils.replace(info, {
             productName: manifest.productName,
-            // identifier: manifest.identifier
+            identifier: manifest.identifier
         });
         finalAppDir.write('Contents/Frameworks/nwjs Helper' + helper_suffix + '.app/Contents/Info.plist', info);
     });
