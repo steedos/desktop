@@ -50,7 +50,7 @@ var finalize = function () {
     finalAppDir.find("Contents/Resources", {
         matching: '*.lproj'
     }).forEach(function(dir_name){
-        finalAppDir.remove(dir_name)
+        finalAppDir.remove(dir_name + "/InfoPlist.strings");
     });
 
     // Prepare Info.plist of Helper apps
