@@ -129,6 +129,11 @@ Section "Install"
     WriteRegStr HKLM "${uninstkey}" "DisplayIcon" '"$INSTDIR\icon.ico"'
     WriteRegStr HKLM "${uninstkey}" "UninstallString" '"$INSTDIR\${uninstaller}"'
 
+    WriteRegStr HKCR "steedos" "" "URL:steedos  Protocol"
+    WriteRegStr HKCR "steedos" "URL Protocol" ""
+    WriteRegStr HKCR "steedos\DefaultIcon" "" "steedos-desktop.exe,1"
+    WriteRegStr HKCR "steedos\shell\open\command" "" "$INSTDIR\steedos-desktop.exe"
+
     ; Remove all application files copied by previous installation
     RMDir /r "$INSTDIR"
     RMDir /r "$DESKTOP\${productName}.lnk"
@@ -192,6 +197,8 @@ Section "Uninstall"
 
     DeleteRegKey HKLM "${uninstkey}"
     DeleteRegKey HKLM "${regkey}"
+
+    DeleteRegKey HKCR "steedos"
 
     Delete "$SMPROGRAMS\${productName}.lnk"
     Delete "$DESKTOP\${productName}.lnk"
