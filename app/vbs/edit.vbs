@@ -7,6 +7,7 @@ Dim filename, baseName, username
 
 filename = Wscript.Arguments.Item(0)
 username = Wscript.Arguments.Item(1)
+
 Edit(filename)
 
 Sub Edit(filename)
@@ -48,22 +49,30 @@ Sub EditDocument( strFile )
 
     ' Create a Word object
     Set oWord = WScript.CreateObject( "Word.Application", "oWord_" )
-
+    
     With oWord
         ' True: make Word visible; False: invisible
         .Visible = true
-
+        
         ' Open the Word document
         .Documents.Open strFile
+        
+        ' 查看时不显示修订痕迹
+        If username = "Steedos.User.isView" Then
+        
+            .ActiveDocument.ShowRevisions = false
 
-        .ActiveDocument.Application.UserName = username
+        Else 
+            .ActiveDocument.Application.UserName = username
 
-        .ActiveDocument.TrackRevisions = true
-
+            .ActiveDocument.TrackRevisions = true
+        
+        End If
+        
         ' Make the opened file the active document
         Set oDocument = .ActiveDocument
         WScript.ConnectObject oDocument, "oDocument_"
-
+        
     End With
 
 End Sub
@@ -72,8 +81,8 @@ End Sub
 Sub oDocument_Close()
     oDocument.Save()
     FileClosed = True
-
 End Sub
+
 
 ' Sub EditWorkbook( strFile )
     

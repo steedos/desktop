@@ -3,7 +3,7 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "https://www.steedos.com/steedos/springboard/",
   "nodejs": true,
