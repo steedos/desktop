@@ -8,7 +8,7 @@ var gui = require('nw.gui');
 var globalWindow = nw.Window.get(); 
 
 var win = nw.Window.open('https://www.steedos.com/steedos/springboard/', {
-    title:'Steedos',
+    title:'集团OA',
     icon: 'icon.png',
     width: 1000,
     height: 600,
