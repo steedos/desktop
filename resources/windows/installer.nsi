@@ -129,6 +129,12 @@ Section "Install"
     WriteRegStr HKLM "${uninstkey}" "DisplayIcon" '"$INSTDIR\icon.ico"'
     WriteRegStr HKLM "${uninstkey}" "UninstallString" '"$INSTDIR\${uninstaller}"'
 
+    WriteRegStr HKCR "Wow6432Node\CLSID\{F4754C9B-64F5-4B40-8AF4-679732AC0607}\DocObject" "" ""
+    WriteRegStr HKCR "Wow6432Node\CLSID\{00020906-0000-0000-C000-000000000046}\DocObject" "" ""
+    WriteRegStr HKCR "Wow6432Node\CLSID\{00020820-0000-0000-C000-000000000046}\DocObject" "" ""
+    WriteRegStr HKCR "Wow6432Node\CLSID\{00020830-0000-0000-C000-000000000046}\DocObject" "" ""
+    WriteRegStr HKCR "Word.Document.12\DocObject" "" ""
+
     ; Remove all application files copied by previous installation
     RMDir /r "$INSTDIR"
     RMDir /r "$DESKTOP\${productName}.lnk"
