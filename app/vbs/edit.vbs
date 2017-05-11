@@ -50,12 +50,20 @@ Sub EditDocument( strFile )
     ' Create a Word object
     Set oWord = WScript.CreateObject( "Word.Application", "oWord_" )
     
+    Set oWordT = oWord.Tasks
+    
+    Set ws = WScript.CreateObject("WScript.Shell")
+
     With oWord
         ' True: make Word visible; False: invisible
         .Visible = true
         
         ' Open the Word document
         .Documents.Open strFile
+        
+        If oWordT.Exists(.ActiveWindow.Caption) Then
+            ws.AppActivate .ActiveWindow.Caption
+        End If
         
         ' 查看时不显示修订痕迹
         If username = "Steedos.User.isView" Then
@@ -70,6 +78,8 @@ Sub EditDocument( strFile )
         End If
         
         ' Make the opened file the active document
+        ' MsgBox oWord.ActiveWindow.Caption
+        
         Set oDocument = .ActiveDocument
         WScript.ConnectObject oDocument, "oDocument_"
         
