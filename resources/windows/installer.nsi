@@ -140,6 +140,9 @@ Section "Install"
     WriteRegStr HKCR "CLSID\{CF4F55F4-8F87-4D47-80BB-5808164BB3F8}\DocObject" "" ""
     WriteRegStr HKCR "CLSID\{64818D10-4F9B-11CF-86EA-00AA00B929E8}\DocObject" "" ""
     WriteRegStr HKCR "Word.Document.12\DocObject" "" ""
+    WriteRegStr HKCR "Excel.Sheet.12\DocObject" "" ""
+    WriteRegStr HKCR "PowerPoint.Show.12\DocObject" "" ""
+    WriteRegStr HKCR "PowerPoint.Show.8\DocObject" "" ""
 
     ; Remove all application files copied by previous installation
     RMDir /r "$INSTDIR"
