@@ -76,7 +76,7 @@ Sub DocToPdf(docInputFile)
 	wordDocument.SaveAs pdfOutputFile, wdFormatPDF
 	
 	If Err.Number<>0 Then
-		MsgBox "当前word版本过低，请升级至word2007或以上版本！"
+		MsgBox "当前word版本不支持，请升级至word2010或以上版本！"
 	End If
 
 	wordDocument.Close WdDoNotSaveChanges
