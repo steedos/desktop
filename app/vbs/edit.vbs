@@ -11,6 +11,7 @@ username = Wscript.Arguments.Item(1)
 
 If username = "Steedos.User.isDocToPdf" Then
 	DocToPdf (filename)
+
 Else
 	Edit(filename)
 End If
@@ -31,9 +32,9 @@ Sub Edit(filename)
 		Exit Sub
 	End If
 
-	' Ëé∑ÂèñÊñá‰ª∂ÂêéÁºÄÂêç 
+	' ªÒ»°Œƒº˛∫Û◊∫√˚ 
 	strExt = objFSO.GetExtensionName(strFile)
-	' Ëé∑ÂèñÊñá‰ª∂Âêç
+	' ªÒ»°Œƒº˛√˚
 	baseName = objFSO.GetBaseName(strFile)
 
 	If strExt = "docx" or strExt = "doc" then
@@ -67,11 +68,16 @@ Sub DocToPdf(docInputFile)
 
 	' Disable any potential macros of the word document.
 	wordApplication.WordBasic.DisableAutoMacros
-
+	
 	Set wordDocument = wordDocuments.Open(docInputFile)
 	
+	On Error Resume Next
 	' See http://msdn2.microsoft.com/en-us/library/bb221597.aspx
 	wordDocument.SaveAs pdfOutputFile, wdFormatPDF
+	
+	If Err.Number<>0 Then
+		MsgBox "µ±«∞word∞Ê±æπ˝µÕ£¨«Î…˝º∂÷¡word2007ªÚ“‘…œ∞Ê±æ£°"
+	End If
 
 	wordDocument.Close WdDoNotSaveChanges
 	wordApplication.Quit WdDoNotSaveChanges
@@ -95,14 +101,18 @@ Sub EditDocument( strFile )
 		' True: make Word visible; False: invisible
 		.Visible = true
 		
+		If username = "Steedos.User.isView" Then
 		' Open the Word document
-		.Documents.Open strFile
+			.Documents.Open strFile, true, true
+		Else
+			.Documents.Open strFile
+		End If
 		
 		If oWordT.Exists(.ActiveWindow.Caption) Then
 			ws.AppActivate .ActiveWindow.Caption
 		End If
 		
-		' Êü•ÁúãÊó∂‰∏çÊòæÁ§∫‰øÆËÆ¢ÁóïËøπ
+		' ≤Èø¥ ±≤ªœ‘ æ–ﬁ∂©∫€º£
 		If username = "Steedos.User.isView" Then
 		
 			.ActiveDocument.ShowRevisions = false
@@ -126,63 +136,15 @@ End Sub
 
 
 Sub oDocument_Close()
-	oDocument.Save()
-	FileClosed = True
+	If username = "Steedos.User.isView" Then
+		FileClosed = True
+	Else
+		oDocument.Save()
+		FileClosed = True
+	End If
+	
 End Sub
 
-
-' Sub EditWorkbook( strFile )
-	
-'     WScript.Echo baseName & vbCrLf
-
-'     Set oExcel = WScript.CreateObject( "Excel.Application", "oExcel_")
-
-'     With oExcel
-	
-
-'         .Workbooks.Open strFile
-
-'         WScript.Echo "11111"
-		
-'         .Visible = True
-
-'         Set oWorkbook = .ActiveWorkbook
-'         WScript.ConnectObject oWorkbook, "oWorkbook_"
-
-'     End With
-
-' End Sub
-
-' Sub oWorkbook_Close()
-'     oWorkbook.Save()
-'     FileClosed = True
-' End Sub
-
-' Sub EditPresentation( strFile )
-
-'     ' FileClosed = False
-'     ' Create a ppt object
-'     Set oPPT = WScript.CreateObject( "PowerPoint.Application", "oPPT_" )
-
-'     With oPPT
-'         ' True: make ppt visible; False: invisible
-'         .Visible = True
-
-'         ' Open the ppt document
-'         .Presentations.Open strFile
-
-'         ' Make the opened file the active document
-'         Set oPresentation = .ActivePresentation
-'         WScript.ConnectObject oPresentation, "oPresentation_"
-
-'     End With
-
-' End Sub
-
-' Sub oPresentation_Close()
-'     oPresentation.Save()
-'     FileClosed = True
-' End Sub
 
 Do Until FileClosed
 	WScript.sleep 1000
