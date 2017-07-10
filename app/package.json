@@ -3,7 +3,7 @@
   "productName": "集团OA",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.1.5",
+  "version": "3.1.7",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "http://192.1.1.141:315/",
   "nodejs": true,
