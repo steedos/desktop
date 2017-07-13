@@ -71,9 +71,6 @@ Sub DocToPdf(docInputFile)
 	
 	Set wordDocument = wordDocuments.Open(docInputFile)
 	
-	' Çå³ýÐÞ¶©Ä£Ê½
-	wordApplication.ActiveDocument.ShowRevisions = false
-	
 	On Error Resume Next
 	' See http://msdn2.microsoft.com/en-us/library/bb221597.aspx
 	wordDocument.SaveAs pdfOutputFile, wdFormatPDF
@@ -124,6 +121,8 @@ Sub EditDocument( strFile )
 			.ActiveDocument.Application.UserName = username
 
 			.ActiveDocument.TrackRevisions = true
+			
+			.NormalTemplate.Saved = true
 		
 		End If
 		
