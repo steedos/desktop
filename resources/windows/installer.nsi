@@ -61,7 +61,7 @@ WindowIcon off
 
 ; A multilingual message
 LangString Message_welcome ${LANG_ENGLISH} "Welcome to ${productName} version ${version} installer."
-LangString Message_welcome ${LANG_SIMPCHINESE} "欢迎安装${productName}${version}"
+LangString Message_welcome ${LANG_SIMPCHINESE} "欢迎安装“${productName}${version}”"
 
 LangString Message_setup ${LANG_ENGLISH} "${productName} setup"
 LangString Message_setup ${LANG_SIMPCHINESE} "安装${productName}"
