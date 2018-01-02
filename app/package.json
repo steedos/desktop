@@ -3,9 +3,9 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
-  "main": "https://www.steedos.com/steedos/springboard/",
+  "main": "https://cn.steedos.com/steedos/springboard/",
   "nodejs": true,
   "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/"],
   "window": {
