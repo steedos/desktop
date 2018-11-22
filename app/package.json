@@ -3,13 +3,20 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "http://10.103.10.130/",
   "nodejs": true,
-  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/","http://10.103.10.130/"],
+  "node-remote": [
+    "https://*.steedos.com/",
+    "http://steedos.ticp.net/",
+    "http://127.0.0.1/",
+    "http://localhost/",
+    "http://10.103.10.130/",
+    "http://10.103.10.135/"
+  ],
   "window": {
-    "title":"Steedos",
+    "title": "Steedos",
     "icon": "icon.png",
     "show": true,
     "width": 1600,
@@ -21,5 +28,6 @@
     "node-notifier": "^4.6.0",
     "node-forge": "0.6.41",
     "edge": "6.5.1"
-  }
+  },
+  "chromium-args": "--ignore-certificate-errors --disable-web-security"
 }

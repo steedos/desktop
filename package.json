@@ -6,7 +6,7 @@
     "gulp-less": "^3.0.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.6",
-    "nw": "^0.14.7-sdk",
+    "nw": "^0.19.5-sdk",
     "q": "^1.4.1",
     "tree-kill": "^0.1.1",
     "yargs": "^3.15.0"
