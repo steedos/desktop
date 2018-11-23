@@ -3,7 +3,7 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "http://10.103.10.130/",
   "nodejs": true,
