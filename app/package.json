@@ -5,9 +5,9 @@
   "description": "",
   "version": "4.0.2",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
-  "main": "https://cn.steedos.com/steedos/springboard/",
+  "main": "http://192.168.0.129/",
   "nodejs": true,
-  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/"],
+  "node-remote": ["https://*.steedos.com/","http://steedos.ticp.net/","http://127.0.0.1/","http://localhost/","http://192.168.0.129/"],
   "window": {
     "title":"Steedos",
     "icon": "icon.png",
