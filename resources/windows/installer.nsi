@@ -94,12 +94,6 @@ Var Image
 Var ImageHandle
 
 Function .onInit
-    ; 判断当前系统是否为XP或XP以下
-    ${If} ${AtMostWinXP}   
-        MessageBox MB_OK "对不起，此版本不支持Windows XP系统。"
-        Abort   
-    ${EndIf}
-
     ; Extract banner image for welcome page
     InitPluginsDir
     ReserveFile "${banner}"

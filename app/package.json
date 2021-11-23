@@ -3,17 +3,20 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "3.1.4",
+  "version": "4.1.0",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
-  "main": "http://10.103.10.130/",
+  "main": "https://rfiam.cnpc/ngiam-rst/v1/sdk/login/sso?appCode=fsshgrgzpt&tenantCode=fssh",
   "nodejs": true,
   "node-remote": [
     "https://*.steedos.com/",
     "http://steedos.ticp.net/",
+    "https://rfiamtest.cnpc/",
+    "https://rfiam.cnpc/",
     "http://127.0.0.1/",
     "http://localhost/",
     "http://10.103.10.130/",
-    "http://10.103.10.135/"
+    "http://10.103.10.135/",
+    "http://10.103.10.195/"
   ],
   "window": {
     "title": "Steedos",
@@ -29,5 +32,5 @@
     "node-forge": "0.6.41",
     "edge": "6.5.1"
   },
-  "chromium-args": "--ignore-certificate-errors --disable-web-security"
+  "chromium-args": "--ignore-certificate-errors --disable-web-security --allow-running-insecure-content"
 }
