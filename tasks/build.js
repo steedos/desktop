@@ -34,6 +34,7 @@ var paths = {
 
 gulp.task('clean', function(callback) {
     return destDir.dirAsync('.', { empty: true });
+    callback();
 });
 
 
@@ -45,7 +46,7 @@ var copyTask = function () {
         matching: paths.copyFromAppDir
     });
 };
-gulp.task('copy', ['clean'], copyTask);
+gulp.task('copy', gulp.series('clean', copyTask));
 gulp.task('copy-watch', copyTask);
 
 
@@ -56,7 +57,7 @@ var transpileTask = function () {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(destDir.path()));
 };
-gulp.task('transpile', ['clean', 'copy'], transpileTask);
+gulp.task('transpile', gulp.series('clean', 'copy', transpileTask));
 gulp.task('transpile-watch', transpileTask);
 
 
@@ -65,12 +66,12 @@ var lessTask = function () {
     .pipe(less())
     .pipe(gulp.dest(destDir.path('stylesheets')));
 };
-gulp.task('less', ['clean'], lessTask);
+gulp.task('less', gulp.series('clean', lessTask));
 gulp.task('less-watch', lessTask);
 
 
 // Add and customize OS-specyfic and target-specyfic stuff.
-gulp.task('finalize', ['clean'], function () {
+gulp.task('finalize', gulp.series('clean', function (done) {
     var manifest = srcDir.read('package.json', 'json');
     switch (utils.getEnvName()) {
         case 'production':
@@ -94,14 +95,16 @@ gulp.task('finalize', ['clean'], function () {
 
     var configFilePath = projectDir.path('config/env_' + utils.getEnvName() + '.json');
     destDir.copy(configFilePath, 'env_config.json');
-});
+    done();
+}));
 
 
-gulp.task('watch', function () {
+gulp.task('watch', function (done) {
     gulp.watch(paths.jsCodeToTranspile, ['transpile-watch']);
     gulp.watch(paths.copyFromAppDir, { cwd: 'app' }, ['copy-watch']);
     gulp.watch('app/**/*.less', ['less-watch']);
+    done();
 });
 
 
-gulp.task('build', ['less', 'copy', 'finalize']);
+gulp.task('build', gulp.series('less', 'copy', 'finalize'));
