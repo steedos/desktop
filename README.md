@@ -54,6 +54,8 @@ There is one extra field in this file you won't find in NW docs: `productName`. 
 
 #### Installation
 
+node must < v12.0.0
+
 ```
 npm install
 ```
