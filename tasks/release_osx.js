@@ -1,7 +1,7 @@
 'use strict';
 
 var Q = require('q');
-var gulpUtil = require('gulp-util');
+var gulpUtil = console;
 var childProcess = require('child_process');
 var jetpack = require('fs-jetpack');
 var utils = require('./utils');

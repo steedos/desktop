@@ -29,8 +29,7 @@
   "dependencies": {
     "fs-jetpack": "^0.7.0",
     "node-notifier": "^4.6.0",
-    "node-forge": "0.6.41",
-    "edge": "6.5.1"
+    "node-forge": "0.6.41"
   },
   "chromium-args": "--ignore-certificate-errors --disable-web-security --allow-running-insecure-content"
 }

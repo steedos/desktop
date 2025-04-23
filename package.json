@@ -5,9 +5,9 @@
     "gulp-babel": "^8.0.0",
     "gulp-less": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-util": "^3.0.8",
     "nw": "0.98.2-sdk",
     "q": "^1.5.1",
+    "rcedit": "^4.0.1",
     "tree-kill": "^1.2.2",
     "yargs": "^17.7.2"
   },
