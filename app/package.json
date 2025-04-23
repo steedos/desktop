@@ -3,7 +3,7 @@
   "productName": "Steedos",
   "identifier": "com.steedos.desktop",
   "description": "",
-  "version": "4.1.0",
+  "version": "5.1.0",
   "author": "Jack Zhuang <zhuangjianguo@hotoa.com>",
   "main": "https://rfiam.cnpc/ngiam-rst/v1/sdk/login/sso?appCode=fsshgrgzpt&tenantCode=fssh",
   "nodejs": true,
