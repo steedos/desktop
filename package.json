@@ -1,29 +1,29 @@
 {
   "devDependencies": {
-    "fs-jetpack": "^0.7.0",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-less": "^3.0.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-util": "^3.0.6",
-    "nw": "0.43.6-sdk",
-    "q": "^1.4.1",
-    "tree-kill": "^0.1.1",
-    "yargs": "^3.15.0"
+    "fs-jetpack": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "nw": "0.98.2-sdk",
+    "q": "^1.5.1",
+    "tree-kill": "^1.2.2",
+    "yargs": "^17.7.2"
   },
   "optionalDependencies": {
-    "appdmg": "^0.3.2",
-    "rcedit": "^0.3.0"
+    "appdmg": "^0.6.0",
+    "rcedit": "^3.0.0"
   },
   "scripts": {
-    "postinstall": "cd ./app  &&  npm install",
-    "build": "./node_modules/.bin/gulp build",
+    "postinstall": "cd ./app && npm install",
+    "build": "gulp build",
     "start": "node ./tasks/start",
     "test": "node ./tasks/start --env=test",
     "sign": "gulp release --env=production --sign 'Developer ID Application: Shanghai HotLong Software Co. Ltd. (G6293UGCRM)'",
-    "release": "./node_modules/.bin/gulp release --env=production"
+    "release": "gulp release --env=production"
   },
   "dependencies": {
-    "node-notifier": "^4.6.0"
+    "node-notifier": "^10.0.1"
   }
 }
